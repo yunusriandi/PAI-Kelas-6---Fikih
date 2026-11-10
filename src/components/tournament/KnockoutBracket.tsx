@@ -7,6 +7,7 @@ import React, { useState, useEffect } from 'react';
 import { Team, TournamentMatch } from '../../types/game';
 import { Trophy, Shuffle, RotateCcw, Swords, ChevronRight, Sparkles, CheckCircle2 } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import { IMAGES } from '../../constants/images';
 
 interface KnockoutBracketProps {
   teams: Team[];
@@ -63,7 +64,10 @@ export const KnockoutBracket: React.FC<KnockoutBracketProps> = ({
       {/* Background Islamic Architecture & Sky Atmosphere */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <img
-          src="/src/assets/images/islamic_skyline_bg_1794278454139.jpg"
+          src={IMAGES.islamicBg}
+          onError={(e) => {
+            e.currentTarget.src = IMAGES.fallbacks.islamicBg;
+          }}
           alt="Latar Belakang Islami"
           className="w-full h-full object-cover opacity-15 filter blur-[2px]"
         />

@@ -17,6 +17,7 @@ import { determineMatchWinner } from '../../utils/bracket';
 import { addHistoryRecord } from '../../utils/storage';
 import { ArrowRight, Trophy, Play, CheckCircle2, RotateCcw } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import { IMAGES } from '../../constants/images';
 
 interface MatchDuelRunnerProps {
   match: TournamentMatch;
@@ -110,8 +111,12 @@ export const MatchDuelRunner: React.FC<MatchDuelRunnerProps> = ({
         {/* Background Islamic Skyline Texture */}
         <div className="absolute inset-0 z-0 pointer-events-none">
           <img
-            src="/src/assets/images/islamic_skyline_bg_1794278454139.jpg"
+            src={IMAGES.islamicBg}
             alt="Latar Belakang Islami"
+            referrerPolicy="no-referrer"
+            onError={(e) => {
+              e.currentTarget.src = IMAGES.fallbacks.islamicBg;
+            }}
             className="w-full h-full object-cover opacity-25 filter blur-[1px]"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-slate-900/90" />
@@ -163,8 +168,12 @@ export const MatchDuelRunner: React.FC<MatchDuelRunnerProps> = ({
                 style={{ borderColor: teamA.color }}
               >
                 <img
-                  src="/src/assets/images/avatar_boy_student_1794278454764.jpg"
+                  src={IMAGES.avatarBoy}
                   alt={playerA.name}
+                  referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    e.currentTarget.src = IMAGES.fallbacks.avatarBoy;
+                  }}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -186,8 +195,12 @@ export const MatchDuelRunner: React.FC<MatchDuelRunnerProps> = ({
                 style={{ borderColor: teamB.color }}
               >
                 <img
-                  src="/src/assets/images/avatar_girl_student_1794278454716.jpg"
+                  src={IMAGES.avatarGirl}
                   alt={playerB.name}
+                  referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    e.currentTarget.src = IMAGES.fallbacks.avatarGirl;
+                  }}
                   className="w-full h-full object-cover"
                 />
               </div>

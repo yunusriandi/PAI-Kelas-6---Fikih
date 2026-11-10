@@ -25,6 +25,7 @@ import { GameKeranjang } from './GameKeranjang';
 import { GameCocokkan } from './GameCocokkan';
 import { GameHakimCilik } from './GameHakimCilik';
 import { ArrowRight, RotateCcw, Volume2, VolumeX, Sparkles, BookOpen } from 'lucide-react';
+import { IMAGES } from '../../constants/images';
 
 interface SplitScreenDuelProps {
   gameType: 1 | 2 | 3 | 4 | 5;
@@ -448,8 +449,12 @@ export const SplitScreenDuel: React.FC<SplitScreenDuelProps> = ({
       {/* Background Islamic Architecture & Sky Atmosphere */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <img
-          src="/src/assets/images/islamic_skyline_bg_1794278454139.jpg"
+          src={IMAGES.islamicBg}
           alt="Latar Belakang Islami"
+          referrerPolicy="no-referrer"
+          onError={(e) => {
+            e.currentTarget.src = IMAGES.fallbacks.islamicBg;
+          }}
           className="w-full h-full object-cover opacity-15 filter blur-[2px]"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-900/80 to-slate-950/95" />
@@ -465,8 +470,12 @@ export const SplitScreenDuel: React.FC<SplitScreenDuelProps> = ({
               style={{ borderColor: teamA.color }}
             >
               <img
-                src="/src/assets/images/avatar_boy_student_1794278454764.jpg"
+                src={IMAGES.avatarBoy}
                 alt="Pemain A Siswa Muslim"
+                referrerPolicy="no-referrer"
+                onError={(e) => {
+                  e.currentTarget.src = IMAGES.fallbacks.avatarBoy;
+                }}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -544,8 +553,12 @@ export const SplitScreenDuel: React.FC<SplitScreenDuelProps> = ({
               style={{ borderColor: teamB.color }}
             >
               <img
-                src="/src/assets/images/avatar_girl_student_1794278454716.jpg"
+                src={IMAGES.avatarGirl}
                 alt="Pemain B Siswi Muslimah"
+                referrerPolicy="no-referrer"
+                onError={(e) => {
+                  e.currentTarget.src = IMAGES.fallbacks.avatarGirl;
+                }}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -649,8 +662,12 @@ export const SplitScreenDuel: React.FC<SplitScreenDuelProps> = ({
                 style={{ borderColor: teamA.color }}
               >
                 <img
-                  src="/src/assets/images/avatar_boy_student_1794278454764.jpg"
+                  src={IMAGES.avatarBoy}
                   alt={playerA.name}
+                  referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    e.currentTarget.src = IMAGES.fallbacks.avatarBoy;
+                  }}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -669,8 +686,12 @@ export const SplitScreenDuel: React.FC<SplitScreenDuelProps> = ({
                 style={{ borderColor: teamB.color }}
               >
                 <img
-                  src="/src/assets/images/avatar_girl_student_1794278454716.jpg"
+                  src={IMAGES.avatarGirl}
                   alt={playerB.name}
+                  referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    e.currentTarget.src = IMAGES.fallbacks.avatarGirl;
+                  }}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -751,8 +772,12 @@ export const SplitScreenDuel: React.FC<SplitScreenDuelProps> = ({
                   style={{ borderColor: teamA.color }}
                 >
                   <img
-                    src="/src/assets/images/avatar_boy_student_1794278454764.jpg"
+                    src={IMAGES.avatarBoy}
                     alt={playerA.name}
+                    referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      e.currentTarget.src = IMAGES.fallbacks.avatarBoy;
+                    }}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -783,8 +808,12 @@ export const SplitScreenDuel: React.FC<SplitScreenDuelProps> = ({
                   style={{ borderColor: teamB.color }}
                 >
                   <img
-                    src="/src/assets/images/avatar_girl_student_1794278454716.jpg"
+                    src={IMAGES.avatarGirl}
                     alt={playerB.name}
+                    referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      e.currentTarget.src = IMAGES.fallbacks.avatarGirl;
+                    }}
                     className="w-full h-full object-cover"
                   />
                 </div>

@@ -6,6 +6,7 @@
 import React, { useState } from 'react';
 import { GAME_TYPE_NAMES, Team, TeamMember } from '../../types/game';
 import { X, Play, Swords } from 'lucide-react';
+import { IMAGES } from '../../constants/images';
 
 interface QuickDuelModalProps {
   teams: Team[];
@@ -111,7 +112,10 @@ export const QuickDuelModal: React.FC<QuickDuelModalProps> = ({
               <div className="flex items-center gap-2 text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1.5 rounded-xl border border-emerald-200">
                 <div className="w-6 h-6 rounded-lg overflow-hidden shrink-0 border border-emerald-400">
                   <img
-                    src="/src/assets/images/avatar_boy_student_1794278454764.jpg"
+                    src={IMAGES.avatarBoy}
+                    onError={(e) => {
+                      e.currentTarget.src = IMAGES.fallbacks.avatarBoy;
+                    }}
                     alt={playerA.name}
                     className="w-full h-full object-cover"
                   />
@@ -141,7 +145,10 @@ export const QuickDuelModal: React.FC<QuickDuelModalProps> = ({
               <div className="flex items-center gap-2 text-xs font-semibold text-sky-700 bg-sky-50 px-2.5 py-1.5 rounded-xl border border-sky-200">
                 <div className="w-6 h-6 rounded-lg overflow-hidden shrink-0 border border-sky-400">
                   <img
-                    src="/src/assets/images/avatar_girl_student_1794278454716.jpg"
+                    src={IMAGES.avatarGirl}
+                    onError={(e) => {
+                      e.currentTarget.src = IMAGES.fallbacks.avatarGirl;
+                    }}
                     alt={playerB.name}
                     className="w-full h-full object-cover"
                   />

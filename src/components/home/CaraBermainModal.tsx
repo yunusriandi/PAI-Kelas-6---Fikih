@@ -6,6 +6,7 @@
 import React from 'react';
 import { X, BookOpen, Users, Trophy, Sparkles, CheckCircle2 } from 'lucide-react';
 import { GAME_TYPE_NAMES } from '../../types/game';
+import { IMAGES } from '../../constants/images';
 
 interface CaraBermainModalProps {
   onClose: () => void;
@@ -45,7 +46,10 @@ export const CaraBermainModal: React.FC<CaraBermainModalProps> = ({ onClose }) =
           <div className="flex flex-col sm:flex-row items-center gap-4 p-4 rounded-2xl bg-gradient-to-r from-emerald-100 via-teal-50 to-amber-50 border border-emerald-300">
             <div className="w-24 sm:w-28 h-20 sm:h-24 rounded-2xl overflow-hidden shrink-0 border-2 border-emerald-400 shadow-md">
               <img
-                src="/src/assets/images/muslim_kids_hero_1794278452695.jpg"
+                src={IMAGES.heroKids}
+                onError={(e) => {
+                  e.currentTarget.src = IMAGES.fallbacks.heroKids;
+                }}
                 alt="Siswa dan Siswi Muslim PAI"
                 className="w-full h-full object-cover"
               />

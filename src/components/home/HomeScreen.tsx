@@ -6,6 +6,7 @@
 import React from 'react';
 import { Trophy, Swords, BookOpen, Settings, Sparkles, Star, Moon, Check, X } from 'lucide-react';
 import { Team } from '../../types/game';
+import { IMAGES } from '../../constants/images';
 
 interface HomeScreenProps {
   teams: Team[];
@@ -27,9 +28,12 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
       {/* 1. Panoramic Islamic Mosque & Sky Background */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/src/assets/images/islamic_skyline_bg_1794278454139.jpg"
+          src={IMAGES.islamicBg}
           alt="Latar Belakang Nuansa Islami Anak Muslim"
           referrerPolicy="no-referrer"
+          onError={(e) => {
+            e.currentTarget.src = IMAGES.fallbacks.islamicBg;
+          }}
           className="w-full h-full object-cover object-center filter brightness-[0.45] saturate-[1.25] scale-105"
         />
         {/* Soft emerald-slate gradient scrim */}
@@ -95,9 +99,12 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
         <div className="relative group shrink-0">
           <div className="w-56 sm:w-64 md:w-72 lg:w-80 rounded-3xl overflow-hidden border-4 border-amber-300/80 shadow-2xl shadow-emerald-950/80 bg-slate-800/90 relative">
             <img
-              src="/src/assets/images/muslim_kids_hero_1794278452695.jpg"
+              src={IMAGES.heroKids}
               alt="Anak Muslim Berprestasi PAI"
               referrerPolicy="no-referrer"
+              onError={(e) => {
+                e.currentTarget.src = IMAGES.fallbacks.heroKids;
+              }}
               className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500"
             />
             {/* Friendly Mascot Tag */}
@@ -112,15 +119,23 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
           {/* Floating Student Avatars Badges */}
           <div className="absolute -top-3 -left-3 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl overflow-hidden border-2 border-emerald-400 shadow-lg bg-emerald-900">
             <img
-              src="/src/assets/images/avatar_boy_student_1794278454764.jpg"
+              src={IMAGES.avatarBoy}
               alt="Siswa Muslim PAI"
+              referrerPolicy="no-referrer"
+              onError={(e) => {
+                e.currentTarget.src = IMAGES.fallbacks.avatarBoy;
+              }}
               className="w-full h-full object-cover"
             />
           </div>
           <div className="absolute -bottom-3 -right-3 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl overflow-hidden border-2 border-pink-400 shadow-lg bg-pink-900">
             <img
-              src="/src/assets/images/avatar_girl_student_1794278454716.jpg"
+              src={IMAGES.avatarGirl}
               alt="Siswi Muslimah PAI"
+              referrerPolicy="no-referrer"
+              onError={(e) => {
+                e.currentTarget.src = IMAGES.fallbacks.avatarGirl;
+              }}
               className="w-full h-full object-cover"
             />
           </div>
