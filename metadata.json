@@ -1,0 +1,6 @@
+{
+  "name": "Duel Halal Haram - PAI Kelas 6 SD",
+  "description": "Game edukasi interaktif PAI kelas 6 SD: Turnamen split-screen duel halal haram (zat, sifat, proses) untuk smartboard dan touchscreen.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
